@@ -1,26 +1,12 @@
-const imgSlider1 = document.getElementById('imgSlider1');
-const imgSlider2 = document.getElementById('imgSlider2');
-const imgSlider3 = document.getElementById('imgSlider3');
-let imgArr = [imgSlider1, imgSlider2, imgSlider3];
 
-const mobSlider1 = document.getElementById('mobSlider1');
-const mobSlider2 = document.getElementById('mobSlider2');
-const mobSlider3 = document.getElementById('mobSlider3');
-let mobImgArr = [mobSlider1, mobSlider2, mobSlider3];
+let imgArr = document.querySelectorAll('.js-img-slider');
+let mobImgArr = document.querySelectorAll('.mob_slider');
+let linkArr = document.querySelectorAll('.js-link');
+let btnArr = document.querySelectorAll('.js-btn');
 
 const sity = document.getElementById('city');
 const apartamentAera = document.getElementById('apartament');
 const repairTime = document.getElementById('repair');
-
-const link1 = document.getElementById('link1')
-const link2 = document.getElementById('link2')
-const link3 = document.getElementById('link3')
-let linkArr = [link1, link2, link3];
-
-const btn1 = document.getElementById('btn1');
-const btn2 = document.getElementById('btn2');
-const btn3 = document.getElementById('btn3');
-let btnArr = [btn1, btn2, btn3];
 
 const arrowLeft = document.getElementById('arrowLeft');
 const arrowRight = document.getElementById('arrowRight');
@@ -28,18 +14,51 @@ const arrowRight = document.getElementById('arrowRight');
 const mobBtnLeft = document.getElementById('mobBtnLeft');
 const mobBtnRight = document.getElementById('mobBtnRight');
 
+const paragraphs = [
+    {
+        text1: 'Rostov-on-Don <br \/> LCD admiral',
+        text2: '81 m2',
+        text3: '3.5 months'
+    },
+
+    {
+        text1: 'Sochi Thieves',
+        text2: '105 m2',
+        text3: '4 months'
+    },
+
+    {
+        text1: 'Rostov-on-Don <br \/> Patriotic',
+        text2: '93 m2',
+        text3: '3 months',
+    }
+]
+
 let aparAera = document.getElementById('apartament_aera');
 
 let click = 0;
 
 let imgAnimCheck = 1;
 
-function replaceTect(sityStile, aera, duration, margin) {
-    sity.innerHTML = sityStile;
-    apartamentAera.innerHTML = aera;
-    repairTime.innerHTML = duration;
-    sity.style.marginBottom = margin;
-};
+function replaceTect() {
+    if (click == 0) {
+        sity.innerHTML = paragraphs[click].text1;
+        apartamentAera.innerHTML = paragraphs[click].text2;
+        repairTime.innerHTML = paragraphs[click].text3;
+        sity.style.marginBottom = 19 + 'px';   
+    } else if (click == 1) {
+        sity.innerHTML = paragraphs[click].text1;
+        apartamentAera.innerHTML = paragraphs[click].text2;
+        repairTime.innerHTML = paragraphs[click].text3;
+        sity.style.marginBottom = 45 + 'px';
+    } else {
+        sity.innerHTML = paragraphs[click].text1;
+        apartamentAera.innerHTML = paragraphs[click].text2;
+        repairTime.innerHTML = paragraphs[click].text3;
+        sity.style.marginBottom = 19 + 'px';
+    }
+}
+
 
 function transpUp(img) {
     let transp = 0
@@ -98,35 +117,10 @@ function btnStyle(arr, btnNum, addStyle, removeStyle) {
     }
 }
 
-function slider1() {
+function slider() {
     imgAnim(imgArr);
-    replaceTect(
-        'Rostov-on-Don <br \/> LCD admiral',
-        '81 m2',
-        '3.5 months',
-        19 + 'px'
-    );
-};
-
-function slider2() {
-    imgAnim(imgArr);
-    replaceTect(
-        'Sochi Thieves',
-        '105 m2',
-        '4 months',
-        45 + 'px'
-    );
-};
-
-function slider3() {
-    imgAnim(imgArr);
-    replaceTect(
-        'Rostov-on-Don <br \/> Patriotic',
-        '93 m2',
-        '3 months',
-        19 + 'px'
-    );
-};
+    replaceTect();
+}
 
 function clickCountUp() {
     if (click >= 2) {
@@ -146,15 +140,15 @@ function clickCountDown() {
 
 function arrowSwitching() {
     if (click == 0) {
-        slider1();
+        slider();
         btnStyle(linkArr, 0, 'added_link_style', 'reset_link_style');
         btnStyle(btnArr, 0, 'added_round_btn', 'round_btn');
     } else if (click == 1) {
-        slider2();
+        slider();
         btnStyle(linkArr, 1, 'added_link_style', 'reset_link_style');
         btnStyle(btnArr, 1, 'added_round_btn', 'round_btn');
     } else {
-        slider3();
+        slider();
         btnStyle(linkArr, 2, 'added_link_style', 'reset_link_style');
         btnStyle(btnArr, 2, 'added_round_btn', 'round_btn');
     }
@@ -162,31 +156,19 @@ function arrowSwitching() {
 
 function mobReplaceTect() {
     if (click == 0) {
-        replaceTect(
-            'Rostov-on-Don <br \/> LCD admiral',
-            '81 m2',
-            '3.5 months',
-        );
+        replaceTect()
     } else if (click == 1) {
         aparAera.style.marginLeft = 34 + 'px';
-        replaceTect(
-            'Sochi <br \/> Thieves',
-            '105 m2',
-            '4 months',
-        );
+        replaceTect()
     } else {
-        replaceTect(
-            'Rostov-on-Don <br \/> Patriotic',
-            '93 m2',
-            '3 months',
-        );
+        replaceTect()
     }
 }
 
 linkArr[0].addEventListener('click', function (event) {
     event.preventDefault();
     click = 0;
-    slider1();
+    slider()
     btnStyle(linkArr, 0, 'added_link_style', 'reset_link_style');
     btnStyle(btnArr, 0, 'added_round_btn', 'round_btn');
 });
@@ -194,7 +176,7 @@ linkArr[0].addEventListener('click', function (event) {
 linkArr[1].addEventListener('click', function (event) {
     event.preventDefault();
     click = 1;
-    slider2();
+    slider();
     btnStyle(linkArr, 1, 'added_link_style', 'reset_link_style');
     btnStyle(btnArr, 1, 'added_round_btn', 'round_btn');
 });
@@ -202,28 +184,28 @@ linkArr[1].addEventListener('click', function (event) {
 linkArr[2].addEventListener('click', function (event) {
     event.preventDefault();
     click = 2;
-    slider3();
+    slider();
     btnStyle(linkArr, 2, 'added_link_style', 'reset_link_style');
     btnStyle(btnArr, 2, 'added_round_btn', 'round_btn');
 });
 
 btnArr[0].addEventListener('click', function () {
     click = 0;
-    slider1();
+    slider();
     btnStyle(linkArr, 0, 'added_link_style', 'reset_link_style');
     btnStyle(btnArr, 0, 'added_round_btn', 'round_btn');
 });
 
 btnArr[1].addEventListener('click', function () {
     click = 1;
-    slider2();
+    slider();
     btnStyle(linkArr, 1, 'added_link_style', 'reset_link_style');
     btnStyle(btnArr, 1, 'added_round_btn', 'round_btn');
 });
 
 btnArr[2].addEventListener('click', function () {
     click = 2;
-    slider3();
+    slider();
     btnStyle(linkArr, 2, 'added_link_style', 'reset_link_style');
     btnStyle(btnArr, 2, 'added_round_btn', 'round_btn');
 });
