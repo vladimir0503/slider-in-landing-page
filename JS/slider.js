@@ -1,8 +1,8 @@
 
-let imgArr = document.querySelectorAll('.js-img-slider');
-let mobImgArr = document.querySelectorAll('.mob_slider');
-let linkArr = document.querySelectorAll('.js-link');
-let btnArr = document.querySelectorAll('.js-btn');
+const imgArr = document.querySelectorAll('.js-img-slider');
+const mobImgArr = document.querySelectorAll('.mob_slider');
+const linkArr = document.querySelectorAll('.js-link');
+const btnArr = document.querySelectorAll('.js-btn');
 
 const sity = document.getElementById('city');
 const apartamentAera = document.getElementById('apartament');
@@ -107,6 +107,7 @@ function imgAnim(arr) {
     }
 }
 
+
 function btnStyle(arr, btnNum, addStyle, removeStyle) {
     for (let i = 0; i < arr.length; i++) {
         if ([i] == btnNum) {
@@ -117,9 +118,23 @@ function btnStyle(arr, btnNum, addStyle, removeStyle) {
     }
 }
 
+function btnStyleChange() {
+    if (click == 0) {
+        btnStyle(linkArr, 0, 'added_link_style', 'reset_link_style');
+        btnStyle(btnArr, 0, 'added_round_btn', 'round_btn');
+    } else if (click == 1) {
+        btnStyle(linkArr, 1, 'added_link_style', 'reset_link_style');
+        btnStyle(btnArr, 1, 'added_round_btn', 'round_btn');
+    } else {
+        btnStyle(linkArr, 2, 'added_link_style', 'reset_link_style');
+        btnStyle(btnArr, 2, 'added_round_btn', 'round_btn');
+    }
+}
+
 function slider() {
     imgAnim(imgArr);
     replaceTect();
+    btnStyleChange();
 }
 
 function clickCountUp() {
@@ -138,22 +153,6 @@ function clickCountDown() {
     };
 }
 
-function arrowSwitching() {
-    if (click == 0) {
-        slider();
-        btnStyle(linkArr, 0, 'added_link_style', 'reset_link_style');
-        btnStyle(btnArr, 0, 'added_round_btn', 'round_btn');
-    } else if (click == 1) {
-        slider();
-        btnStyle(linkArr, 1, 'added_link_style', 'reset_link_style');
-        btnStyle(btnArr, 1, 'added_round_btn', 'round_btn');
-    } else {
-        slider();
-        btnStyle(linkArr, 2, 'added_link_style', 'reset_link_style');
-        btnStyle(btnArr, 2, 'added_round_btn', 'round_btn');
-    }
-}
-
 function mobReplaceTect() {
     if (click == 0) {
         replaceTect()
@@ -168,58 +167,46 @@ function mobReplaceTect() {
 linkArr[0].addEventListener('click', function (event) {
     event.preventDefault();
     click = 0;
-    slider()
-    btnStyle(linkArr, 0, 'added_link_style', 'reset_link_style');
-    btnStyle(btnArr, 0, 'added_round_btn', 'round_btn');
+    slider();
 });
 
 linkArr[1].addEventListener('click', function (event) {
     event.preventDefault();
     click = 1;
     slider();
-    btnStyle(linkArr, 1, 'added_link_style', 'reset_link_style');
-    btnStyle(btnArr, 1, 'added_round_btn', 'round_btn');
 });
 
 linkArr[2].addEventListener('click', function (event) {
     event.preventDefault();
     click = 2;
     slider();
-    btnStyle(linkArr, 2, 'added_link_style', 'reset_link_style');
-    btnStyle(btnArr, 2, 'added_round_btn', 'round_btn');
 });
 
 btnArr[0].addEventListener('click', function () {
     click = 0;
     slider();
-    btnStyle(linkArr, 0, 'added_link_style', 'reset_link_style');
-    btnStyle(btnArr, 0, 'added_round_btn', 'round_btn');
 });
 
 btnArr[1].addEventListener('click', function () {
     click = 1;
     slider();
-    btnStyle(linkArr, 1, 'added_link_style', 'reset_link_style');
-    btnStyle(btnArr, 1, 'added_round_btn', 'round_btn');
 });
 
 btnArr[2].addEventListener('click', function () {
     click = 2;
     slider();
-    btnStyle(linkArr, 2, 'added_link_style', 'reset_link_style');
-    btnStyle(btnArr, 2, 'added_round_btn', 'round_btn');
 });
 
 arrowLeft.addEventListener('click', function (event) {
     event.preventDefault();
     clickCountDown();
-    arrowSwitching();
+    slider();
 });
 
 arrowRight.addEventListener('click', function (event) {
     event.preventDefault();
     clickCountUp();
-    arrowSwitching();
+    slider();
 });
 
 mobBtnLeft.addEventListener('click', function () {
