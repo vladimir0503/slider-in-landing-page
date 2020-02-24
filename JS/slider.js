@@ -14,6 +14,11 @@ const arrowRight = document.getElementById('arrowRight');
 const mobBtnLeft = document.getElementById('mobBtnLeft');
 const mobBtnRight = document.getElementById('mobBtnRight');
 
+let aparAera = document.getElementById('apartament_aera');
+
+let click = 0;
+let imgAnimCheck = 1;
+
 const paragraphs = [
     {
         text1: 'Rostov-on-Don <br \/> LCD admiral',
@@ -34,12 +39,6 @@ const paragraphs = [
     }
 ]
 
-let aparAera = document.getElementById('apartament_aera');
-
-let click = 0;
-
-let imgAnimCheck = 1;
-
 function replaceTect() {
     if (click == 0) {
         sity.innerHTML = paragraphs[click].text1;
@@ -51,6 +50,7 @@ function replaceTect() {
         apartamentAera.innerHTML = paragraphs[click].text2;
         repairTime.innerHTML = paragraphs[click].text3;
         sity.style.marginBottom = 45 + 'px';
+        aparAera.marginRight = 4 + 'px';
     } else {
         sity.innerHTML = paragraphs[click].text1;
         apartamentAera.innerHTML = paragraphs[click].text2;
@@ -157,8 +157,10 @@ function mobReplaceTect() {
     if (click == 0) {
         replaceTect()
     } else if (click == 1) {
+        sity.innerHTML = 'Sochi <br \/> Thieves';
+        apartamentAera.innerHTML = paragraphs[click].text2;
+        repairTime.innerHTML = paragraphs[click].text3;
         aparAera.style.marginLeft = 34 + 'px';
-        replaceTect()
     } else {
         replaceTect()
     }
@@ -181,6 +183,11 @@ linkArr[2].addEventListener('click', function (event) {
     click = 2;
     slider();
 });
+
+// linkArr.forEach(Element => addEventListener('click', function (event){
+//     event.preventDefault();
+//     slider();
+// }));
 
 btnArr[0].addEventListener('click', function () {
     click = 0;
