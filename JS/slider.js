@@ -184,11 +184,6 @@ linkArr[2].addEventListener('click', function (event) {
     slider();
 });
 
-// linkArr.forEach(Element => addEventListener('click', function (event){
-//     event.preventDefault();
-//     slider();
-// }));
-
 btnArr[0].addEventListener('click', function () {
     click = 0;
     slider();
