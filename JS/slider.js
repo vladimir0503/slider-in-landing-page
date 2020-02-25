@@ -27,7 +27,7 @@ const paragraphs = [
     },
 
     {
-        text1: 'Sochi Thieves',
+        text1: 'Sochi <br \/> Thieves',
         text2: '105 m2',
         text3: '4 months'
     },
@@ -49,8 +49,7 @@ function replaceTect() {
         sity.innerHTML = paragraphs[click].text1;
         apartamentAera.innerHTML = paragraphs[click].text2;
         repairTime.innerHTML = paragraphs[click].text3;
-        sity.style.marginBottom = 45 + 'px';
-        aparAera.marginRight = 4 + 'px';
+        sity.style.marginRight = 15 + 'px';
     } else {
         sity.innerHTML = paragraphs[click].text1;
         apartamentAera.innerHTML = paragraphs[click].text2;
@@ -170,15 +169,20 @@ function clickCountDown() {
 }
 
 function mobReplaceTect() {
+
     if (click == 0) {
-        replaceTect()
+        sity.innerHTML = paragraphs[click].text1;
+        apartamentAera.innerHTML = paragraphs[click].text2;
+        repairTime.innerHTML = paragraphs[click].text3;
     } else if (click == 1) {
         sity.innerHTML = 'Sochi <br \/> Thieves';
         apartamentAera.innerHTML = paragraphs[click].text2;
         repairTime.innerHTML = paragraphs[click].text3;
         aparAera.style.marginLeft = 34 + 'px';
     } else {
-        replaceTect()
+        sity.innerHTML = paragraphs[click].text1;
+        apartamentAera.innerHTML = paragraphs[click].text2;
+        repairTime.innerHTML = paragraphs[click].text3;
     }
 }
 
@@ -195,13 +199,11 @@ btnArr.forEach(Element => addEventListener('click', function (event) {
 arrowLeft.addEventListener('click', function (event) {
     event.preventDefault();
     clickCountDown();
-    slider();
 });
 
 arrowRight.addEventListener('click', function (event) {
     event.preventDefault();
     clickCountUp();
-    slider();
 });
 
 mobBtnLeft.addEventListener('click', function () {
