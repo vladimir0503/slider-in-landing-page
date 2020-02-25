@@ -27,7 +27,7 @@ const paragraphs = [
     },
 
     {
-        text1: 'Sochi Thieves',
+        text1: 'Sochi <br \/> Thieves',
         text2: '105 m2',
         text3: '4 months'
     },
@@ -35,7 +35,7 @@ const paragraphs = [
     {
         text1: 'Rostov-on-Don <br \/> Patriotic',
         text2: '93 m2',
-        text3: '3 months',
+        text3: '3 months'
     }
 ]
 
@@ -44,13 +44,12 @@ function replaceTect() {
         sity.innerHTML = paragraphs[click].text1;
         apartamentAera.innerHTML = paragraphs[click].text2;
         repairTime.innerHTML = paragraphs[click].text3;
-        sity.style.marginBottom = 19 + 'px';   
+        sity.style.marginBottom = 19 + 'px';
     } else if (click == 1) {
         sity.innerHTML = paragraphs[click].text1;
         apartamentAera.innerHTML = paragraphs[click].text2;
         repairTime.innerHTML = paragraphs[click].text3;
-        sity.style.marginBottom = 45 + 'px';
-        aparAera.marginRight = 4 + 'px';
+        sity.style.marginRight = 15 + 'px';
     } else {
         sity.innerHTML = paragraphs[click].text1;
         apartamentAera.innerHTML = paragraphs[click].text2;
@@ -118,6 +117,21 @@ function btnStyle(arr, btnNum, addStyle, removeStyle) {
     }
 }
 
+function clickCountInit(arr) {
+    arr[0].addEventListener('click', function () {
+        click = 0;
+    });
+
+    arr[1].addEventListener('click', function () {
+        click = 1;
+    });
+
+    arr[2].addEventListener('click', function () {
+        click = 2;
+    });
+
+}
+
 function btnStyleChange() {
     if (click == 0) {
         btnStyle(linkArr, 0, 'added_link_style', 'reset_link_style');
@@ -131,7 +145,8 @@ function btnStyleChange() {
     }
 }
 
-function slider() {
+function slider(arr) {
+    clickCountInit(arr)
     imgAnim(imgArr);
     replaceTect();
     btnStyleChange();
@@ -154,61 +169,41 @@ function clickCountDown() {
 }
 
 function mobReplaceTect() {
+
     if (click == 0) {
-        replaceTect()
+        sity.innerHTML = paragraphs[click].text1;
+        apartamentAera.innerHTML = paragraphs[click].text2;
+        repairTime.innerHTML = paragraphs[click].text3;
     } else if (click == 1) {
         sity.innerHTML = 'Sochi <br \/> Thieves';
         apartamentAera.innerHTML = paragraphs[click].text2;
         repairTime.innerHTML = paragraphs[click].text3;
         aparAera.style.marginLeft = 34 + 'px';
     } else {
-        replaceTect()
+        sity.innerHTML = paragraphs[click].text1;
+        apartamentAera.innerHTML = paragraphs[click].text2;
+        repairTime.innerHTML = paragraphs[click].text3;
     }
 }
 
-linkArr[0].addEventListener('click', function (event) {
+linkArr.forEach(Element => addEventListener('click', function (event) {
     event.preventDefault();
-    click = 0;
-    slider();
-});
+    slider(linkArr);
+}));
 
-linkArr[1].addEventListener('click', function (event) {
+btnArr.forEach(Element => addEventListener('click', function (event) {
     event.preventDefault();
-    click = 1;
-    slider();
-});
-
-linkArr[2].addEventListener('click', function (event) {
-    event.preventDefault();
-    click = 2;
-    slider();
-});
-
-btnArr[0].addEventListener('click', function () {
-    click = 0;
-    slider();
-});
-
-btnArr[1].addEventListener('click', function () {
-    click = 1;
-    slider();
-});
-
-btnArr[2].addEventListener('click', function () {
-    click = 2;
-    slider();
-});
+    slider(btnArr);
+}));
 
 arrowLeft.addEventListener('click', function (event) {
     event.preventDefault();
     clickCountDown();
-    slider();
 });
 
 arrowRight.addEventListener('click', function (event) {
     event.preventDefault();
     clickCountUp();
-    slider();
 });
 
 mobBtnLeft.addEventListener('click', function () {
