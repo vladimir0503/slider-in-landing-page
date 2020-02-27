@@ -170,26 +170,32 @@ function mobReplaceTect() {
     }
 }
 
-linkArr.forEach((Element, index) => addEventListener('click', function (event) {
-    event.preventDefault();
-    click = index;
-    slider();
-}));
+linkArr.forEach(function (item, index) {
+    item.addEventListener('click', function (event) {
+        event.preventDefault();
+        click = index;
+        slider();
+    });
+});
 
-btnArr.forEach((Element, index) => addEventListener('click', function (event) {
-    event.preventDefault();
-    click = index;
-    slider();
-}));
+btnArr.forEach(function (item, index) {
+    item.addEventListener('click', function (event) {
+        event.preventDefault();
+        click = index;
+        slider();
+    });
+});
 
 arrowLeft.addEventListener('click', function (event) {
     event.preventDefault();
     clickCountDown();
+    slider();
 });
 
 arrowRight.addEventListener('click', function (event) {
     event.preventDefault();
     clickCountUp();
+    slider();
 });
 
 mobBtnLeft.addEventListener('click', function () {
