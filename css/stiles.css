@@ -471,6 +471,7 @@ header {
     .mobile_image1 {
         position: relative;
         z-index: 1;
+        transition: 1s;
     }
 
     .mobile_image2 {
@@ -478,6 +479,7 @@ header {
         opacity: 0%;
         z-index: 0;
         margin-left: -298px;
+        transition: 1s;
     }
 
     .mobile_image3 {
@@ -485,6 +487,7 @@ header {
         opacity: 0%;
         z-index: 0;
         margin-left: -298px;
+        transition: 1s;
     }
 }
 
