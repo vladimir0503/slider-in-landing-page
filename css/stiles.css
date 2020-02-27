@@ -585,6 +585,7 @@ header {
     height: 482px;
     position: relative;
     z-index: 1;
+    transition: 1s;
 }
 
 @media screen and (max-width: 1300px) {
@@ -602,6 +603,7 @@ header {
     position: relative;
     opacity: 0%;
     z-index: 0;
+    transition: 1s;
 }
 
 @media screen and (max-width: 1300px) {
@@ -619,6 +621,7 @@ header {
     position: relative;
     opacity: 0%;
     z-index: 0;
+    transition: 1s;
 }
 
 @media screen and (max-width: 1300px) {
