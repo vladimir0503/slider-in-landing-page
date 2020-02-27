@@ -170,21 +170,17 @@ function mobReplaceTect() {
     }
 }
 
-linkArr.forEach(function (item, index) {
-    item.addEventListener('click', function (event) {
-        event.preventDefault();
-        click = index;
-        slider();
-    });
-});
+linkArr.forEach((item, index) => item.addEventListener('click', function (event) {
+    event.preventDefault();
+    click = index;
+    slider();
+}));
 
-btnArr.forEach(function (item, index) {
-    item.addEventListener('click', function (event) {
-        event.preventDefault();
-        click = index;
-        slider();
-    });
-});
+btnArr.forEach((item, index) => item.addEventListener('click', function (event) {
+    event.preventDefault();
+    click = index;
+    slider();
+}));
 
 arrowLeft.addEventListener('click', function (event) {
     event.preventDefault();
