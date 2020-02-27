@@ -117,21 +117,6 @@ function btnStyle(arr, btnNum, addStyle, removeStyle) {
     }
 }
 
-function clickCountInit(arr) {
-    arr[0].addEventListener('click', function () {
-        click = 0;
-    });
-
-    arr[1].addEventListener('click', function () {
-        click = 1;
-    });
-
-    arr[2].addEventListener('click', function () {
-        click = 2;
-    });
-
-}
-
 function btnStyleChange() {
     if (click == 0) {
         btnStyle(linkArr, 0, 'added_link_style', 'reset_link_style');
@@ -145,8 +130,7 @@ function btnStyleChange() {
     }
 }
 
-function slider(arr) {
-    clickCountInit(arr)
+function slider() {
     imgAnim(imgArr);
     replaceTect();
     btnStyleChange();
@@ -186,14 +170,16 @@ function mobReplaceTect() {
     }
 }
 
-linkArr.forEach(Element => addEventListener('click', function (event) {
+linkArr.forEach((Element, index) => addEventListener('click', function (event) {
     event.preventDefault();
-    slider(linkArr);
+    click = index;
+    slider();
 }));
 
-btnArr.forEach(Element => addEventListener('click', function (event) {
+btnArr.forEach((Element, index) => addEventListener('click', function (event) {
     event.preventDefault();
-    slider(btnArr);
+    click = index;
+    slider();
 }));
 
 arrowLeft.addEventListener('click', function (event) {
