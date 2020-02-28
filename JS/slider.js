@@ -44,17 +44,18 @@ function replaceTect() {
         sity.innerHTML = paragraphs[click].text1;
         apartamentAera.innerHTML = paragraphs[click].text2;
         repairTime.innerHTML = paragraphs[click].text3;
-        sity.style.marginBottom = 19 + 'px';
+        sity.style.marginBottom = `${19}px`;
     } else if (click == 1) {
         sity.innerHTML = paragraphs[click].text1;
         apartamentAera.innerHTML = paragraphs[click].text2;
         repairTime.innerHTML = paragraphs[click].text3;
-        sity.style.marginRight = 15 + 'px';
+        sity.style.marginRight = `${15}px`;
     } else {
         sity.innerHTML = paragraphs[click].text1;
         apartamentAera.innerHTML = paragraphs[click].text2;
         repairTime.innerHTML = paragraphs[click].text3;
-        sity.style.marginBottom = 19 + 'px';
+        sity.style.marginBottom = `${19}px`;
+        
     }
 }
 
@@ -65,7 +66,7 @@ function transpUp(img) {
             clearTimeout(t);
         } else {
             transp += 1;
-            img.style.opacity = transp + '%';
+            img.style.opacity = `${transp}%`;
             img.style.zIndex = 1;
             t = setTimeout(anim, 1);
         }
@@ -73,7 +74,7 @@ function transpUp(img) {
 }
 
 function transpReset(img) {
-    img.style.opacity = 0 + '%';
+    img.style.opacity = `${0}%`;
 }
 
 function imgAnim(arr) {
@@ -160,7 +161,7 @@ function mobReplaceTect() {
         sity.innerHTML = paragraphs[click].text1;
         apartamentAera.innerHTML = paragraphs[click].text2;
         repairTime.innerHTML = paragraphs[click].text3;
-        aparAera.style.marginLeft = 34 + 'px';
+        aparAera.style.marginLeft = `${34}px`;
     } else {
         sity.innerHTML = paragraphs[click].text1;
         apartamentAera.innerHTML = paragraphs[click].text2;
