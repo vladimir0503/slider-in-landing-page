@@ -58,20 +58,18 @@ function replaceTect() {
     }
 }
 
-
 function transpUp(img) {
     let transp = 0
-    let t = setInterval(anim, 1);
-
-    function anim() {
+    let t = setTimeout(function anim() {
         if (transp >= 100) {
-            clearInterval(t);
+            clearTimeout(t);
         } else {
             transp += 1;
             img.style.opacity = transp + '%';
             img.style.zIndex = 1;
+            t = setTimeout(anim, 1);
         }
-    }
+    }, 1);
 }
 
 function transpReset(img) {
@@ -159,7 +157,7 @@ function mobReplaceTect() {
         apartamentAera.innerHTML = paragraphs[click].text2;
         repairTime.innerHTML = paragraphs[click].text3;
     } else if (click == 1) {
-        sity.innerHTML = 'Sochi <br \/> Thieves';
+        sity.innerHTML = paragraphs[click].text1;
         apartamentAera.innerHTML = paragraphs[click].text2;
         repairTime.innerHTML = paragraphs[click].text3;
         aparAera.style.marginLeft = 34 + 'px';
