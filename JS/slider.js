@@ -59,22 +59,8 @@ function replaceTect() {
     }
 }
 
-function transpUp(img) {
-    let transp = 0
-    let t = setTimeout(function anim() {
-        if (transp >= 100) {
-            clearTimeout(t);
-        } else {
-            transp += 1;
-            img.style.opacity = `${transp}%`;
-            img.style.zIndex = 1;
-            t = setTimeout(anim, 1);
-        }
-    }, 1);
-}
-
-function transpReset(img) {
-    img.style.opacity = `${0}%`;
+function changeTransp(img, units) {
+    img.style.opacity = `${units}`;
 }
 
 function imgAnim(arr) {
@@ -83,25 +69,25 @@ function imgAnim(arr) {
             return
         }
         imgAnimCheck = 1;
-        transpUp(arr[0]);
-        transpReset(arr[1]);
-        transpReset(arr[2]);
+        changeTransp(arr[0], 100);
+        changeTransp(arr[1], 0);
+        changeTransp(arr[2], 0);
     } else if (click == 1) {
         if (imgAnimCheck == 2) {
             return
         }
         imgAnimCheck = 2;
-        transpReset(arr[0]);
-        transpUp(arr[1]);
-        transpReset(arr[2]);
+        changeTransp(arr[0], 0);
+        changeTransp(arr[1], 100);
+        changeTransp(arr[2], 0);
     } else if (click == 2) {
         if (imgAnimCheck == 3) {
             return
         }
         imgAnimCheck = 3;
-        transpReset(arr[0]);
-        transpReset(arr[1]);
-        transpUp(arr[2]);
+        changeTransp(arr[0], 0);
+        changeTransp(arr[1], 0);
+        changeTransp(arr[2], 100);
     }
 }
 

@@ -588,7 +588,8 @@ header {
     height: 482px;
     position: relative;
     z-index: 1;
-    transition: 1s;
+    transition: 1.5s;
+    box-shadow: 0px 50px 30px rgba(0, 0, 0, 0.15);
 }
 
 @media screen and (max-width: 1300px) {
@@ -606,7 +607,7 @@ header {
     position: relative;
     opacity: 0%;
     z-index: 0;
-    transition: 1s;
+    transition: 1.5s;;
 }
 
 @media screen and (max-width: 1300px) {
@@ -624,7 +625,7 @@ header {
     position: relative;
     opacity: 0%;
     z-index: 0;
-    transition: 1s;
+    transition: 1.5s;;
 }
 
 @media screen and (max-width: 1300px) {
