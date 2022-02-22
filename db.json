@@ -1,0 +1,40 @@
+{
+    "types": [
+        {
+            "imgSrc": "./images/Redecorating.jpg",
+            "title" : "Redecorating",
+            "price" : 900
+        },
+        {
+            "imgSrc": "./images/Overhaul.jpg",
+            "title" : "Overhaul",
+            "price" : 1000
+        },
+        {
+            "imgSrc": "./images/Designer.jpg",
+            "title" : "Designer Repair",
+            "price" : 1500
+        }
+    ],
+
+    "clients": [
+        {
+            "name": "Fedosova Maria<br> Konstantinovna",
+            "avatar" : "./images/client1.png",
+            "meters" : 40,
+            "days" : 48
+        },
+        {
+            "name": "Afanasyev Sergey<br> Alexandrovich",
+            "avatar" : "./images/client2.png",
+            "meters" : 90,
+            "days" : 128
+        },
+        {
+            "name": "Kiriev Egor<br> Leonidovich",
+            "avatar" : "./images/client3.png",
+            "meters" : 56,
+            "days" : 86
+        }
+    ]
+}
